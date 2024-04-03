@@ -16,12 +16,11 @@ class RouteDispatcher
 
             $this->controller = $controller;
             $this->method = $method;
-            var_dump(is_callable([new $this->controller,$this->method]));
-            if(!is_callable([new $this->controller,$this->method])){
-                echo "It is callable";
-                call_user_func_array([new $this->controller,$this->method], $this->match["params"]);
+            if(is_callable([new $this->controller , $this->method])){
+                call_user_func_array([ $this->controller,$this->method], $this->match["params"]);
             }else{
-                echo "It is not callabe";
+                header($_SERVER["SERVER_PROTOCOL"] . "404 not found");
+                echo "Not match route";
             }
         }else{
             header($_SERVER["SERVER_PROTOCOL"] . "404 not found");
@@ -29,12 +28,5 @@ class RouteDispatcher
         }
     }
 }
-
-
-
-
-
-
-
 
 ?>
