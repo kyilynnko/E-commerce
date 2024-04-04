@@ -2,10 +2,36 @@
 
 use App\Classes\Mail;
 use App\Classes\Session;
+use App\Classes\ValidateRequest;
 use Illuminate\Database\Capsule\Manager as Capsule;
 
 
 require_once "../bootstrap/init.php";
+
+// $validator = new ValidateRequest();
+// $con = $validator->number("email","12.12","5");
+// var_dump($con);
+
+
+// $post = [
+//     "name" => "Mg Mg#",
+//     "age" => 21,
+//     "email" => "kyilynnko@gmail.com"
+// ];
+// $policy = [
+//     "name" => ["string" => true, "minLength" => "5"],
+//     "age" => ["number" => true, "minLength" => "2"],
+//     "email" => ["email" => true, "maxLength" => "25"]
+// ];
+// $validator = new ValidateRequest();
+// $validator->checkValidate($post,$policy);
+// if($validator->hasError()){
+//     beautify($validator->getError());
+// }else{
+//     echo "Good to go!";
+// }
+
+
 
 // Session::replace("name","tester1");
 // echo Session::get("name");

@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark">
+<div class="container-fluid bg-dark " >
     <nav class="container navbar navbar-expand-lg navbar-light bg-faded">
         <a class="navbar-brand english text-white" href="#">
             <img src="{{asset('images/dodo.jpg')}}" alt="" width="30" height="30" class="rounded">
