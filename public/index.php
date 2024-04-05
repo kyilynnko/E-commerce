@@ -8,6 +8,11 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 require_once "../bootstrap/init.php";
 
+paginate(5,10,"categories",new \App\Controllers\CategoryController());
+
+
+
+
 // $validator = new ValidateRequest();
 // $con = $validator->number("email","12.12","5");
 // var_dump($con);

@@ -12,8 +12,12 @@
 <body>
     @include('layout.nav')
     @yield('content')
+
     <script src="<?php echo URL_ROOT."assets/js/tether.min.js" ?>"></script>
     <script src="<?php echo URL_ROOT."assets/js/jquery.js" ?>"></script>
     <script src="<?php echo URL_ROOT."assets/js/bootstrap.min.js" ?>"></script>
+
+    <!-- script can do when write .js after -->
+    @yield('script')
 </body>
 </html>

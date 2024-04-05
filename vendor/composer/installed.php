@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '29.3.2024.x-dev',
-        'version' => '29.3.2024.9999999-dev',
-        'reference' => '4e2521e9339f770c65b08c7563108ee21166ee79',
+        'pretty_version' => '4.4.2024.x-dev',
+        'version' => '4.4.2024.9999999-dev',
+        'reference' => '60a63c0e4ea0a4f437e62a964efdd1adf4be82df',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '29.3.2024.x-dev',
-            'version' => '29.3.2024.9999999-dev',
-            'reference' => '4e2521e9339f770c65b08c7563108ee21166ee79',
+            'pretty_version' => '4.4.2024.x-dev',
+            'version' => '4.4.2024.9999999-dev',
+            'reference' => '60a63c0e4ea0a4f437e62a964efdd1adf4be82df',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -289,6 +289,15 @@
             'reference' => '2cf9fb6054c2bb1d59d1f3817706ecdb9d2934c4',
             'type' => 'library',
             'install_path' => __DIR__ . '/../vlucas/phpdotenv',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'voku/pagination' => array(
+            'pretty_version' => '4.0.0',
+            'version' => '4.0.0.0',
+            'reference' => 'e80c49a5744b608eb7f9c559a40e812f6e873fdb',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../voku/pagination',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
