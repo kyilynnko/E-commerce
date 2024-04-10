@@ -7,6 +7,7 @@ use App\Classes\Request;
 use App\Classes\Session;
 use App\Classes\UpdateFile;
 use App\Classes\ValidateRequest;
+use App\Models\SubCategory;
 use App\Models\Category;
 
 class CategoryController extends BaseController
@@ -14,9 +15,14 @@ class CategoryController extends BaseController
     public function index()
     {
         $categories = Category::all()->count();
-        list($cats,$pages) = paginate(3,$categories,new Category());
-        $cats = json_decode(json_encode($cats));  // --> array $cat['name'] in create.blade.php change to object $cat->name
-        view("admin/category/create",compact('cats','pages'));
+        list($cats, $pages) = paginate(3, $categories, true, false, false);
+        $cats = json_decode(json_encode($cats));  // Convert $cats array to object
+
+        $subcategories = SubCategory::all()->count();
+        list($sub_cats, $sub_pages) = paginate(3, $subcategories, false, true, false);
+        $sub_cats = json_decode(json_encode($sub_cats));  // Convert $sub_cats array to object
+
+        return view("admin/category/create", compact('cats', 'pages', 'sub_cats', 'sub_pages'));
     }
 
     public function store()

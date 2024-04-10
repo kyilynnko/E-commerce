@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\SubCategory;
 use Philo\Blade\Blade;
 use voku\helper\Paginator;
 
@@ -40,14 +42,39 @@ function slug($value)
     return $value;
 }
 
-function paginate($num_of_records, $total_record,$object)
+// function paginate($num_of_records, $total_record,$object)
+// {
+//     $pages = new Paginator($num_of_records,'p');
+//     $object = new Category();
+//     $categories = $object->genPaginate($pages->get_limit());
+//     $pages->set_total($total_record);
+
+
+//     return [$categories,$pages->page_links()];
+// }
+
+function paginate($num_of_records, $total_record,  $isCategory = true, $isSubCategory = true, $isProduct = true)
 {
-    $pages = new Paginator($num_of_records,'p');
-    $object = new Category();
-    $categories = $object->genPaginate($pages->get_limit());
+    $pages = new Paginator($num_of_records, 'p');
+    $records = [];
+    
+    if ($isSubCategory) {
+        $subCategoryObject = new SubCategory();
+        $records = $subCategoryObject->genPaginate($pages->get_limit());
+    } 
+    if ($isCategory) {
+        $categoryObject = new Category();
+        $records = $categoryObject->genPaginate($pages->get_limit());
+    }
+    if ($isProduct) {
+        $productObject = new Product();
+        $records = $productObject->genPaginate($pages->get_limit());
+    }
+    
     $pages->set_total($total_record);
 
-
-    return [$categories,$pages->page_links()];
+    return [$records, $pages->page_links()];
 }
+
+
 ?>

@@ -8,7 +8,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 require_once "../bootstrap/init.php";
 
-paginate(5,10,"categories",new \App\Controllers\CategoryController());
+// paginate(5,10,"categories",new \App\Controllers\CategoryController());
 
 
 
