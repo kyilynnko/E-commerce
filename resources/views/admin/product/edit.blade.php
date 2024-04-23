@@ -1,5 +1,5 @@
 @extends("layout.master")
-@section("title","Product Edit Page")
+@section("Title","Product Edit Page")
 @section("content")
 <div class="container my-5">
     <div class="row">

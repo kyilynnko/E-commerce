@@ -1,4 +1,4 @@
-<?php $__env->startSection("title","Product Home Page"); ?>
+<?php $__env->startSection("Title","Product Home Page"); ?>
 <?php $__env->startSection("content"); ?>
     <style>
         .pagination > li{
@@ -41,7 +41,7 @@
                             <td><?php echo e($product->price); ?></td>
                             <td>
                                 <a href="/admin/product/<?php echo e($product->id); ?>/edit" class="text-warning"><i class="fa fa-edit"></i></a>
-                                <i class="fa fa-trash text-danger"></i>
+                                <a href="/admin/product/<?php echo e($product->id); ?>/delete" class="text-warning"><i class="fa fa-trash text-danger"></i></i></a>
                             </td>
                         </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

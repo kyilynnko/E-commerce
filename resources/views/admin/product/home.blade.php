@@ -1,5 +1,5 @@
 @extends("layout.master")
-@section("title","Product Home Page")
+@section("Title","Product Home Page")
 @section("content")
     <style>
         .pagination > li{
@@ -41,7 +41,7 @@
                             <td>{{$product->price}}</td>
                             <td>
                                 <a href="/admin/product/{{$product->id}}/edit" class="text-warning"><i class="fa fa-edit"></i></a>
-                                <i class="fa fa-trash text-danger"></i>
+                                <a href="/admin/product/{{$product->id}}/delete" class="text-warning"><i class="fa fa-trash text-danger"></i></i></a>
                             </td>
                         </tr>
                         @endforeach

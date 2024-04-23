@@ -106,7 +106,7 @@ class ProductController
         
         if(CSRFToken::checkToken($post->token)){
             $rules = [
-                "name" => ["required" => true, "unique" => "products", "minLength" => "5"],
+                "name" => ["required" => true, "minLength" => "5"],
                 "description" => ["required" => true, "minLength" => "20"],
             ];
 
@@ -156,6 +156,18 @@ class ProductController
         }else{
             Session::flash("Product_update_fail","Product Update Fail!");
             return Redirect::to("/admin/product/".$id."/edit");
+        }
+    }
+
+    public function  delete($id) 
+    {
+        $con = Product::destroy($id);
+        if($con){
+            Session::flash("Product_insert_success","Product Delete Successfully!");
+            Redirect::to("/admin/product/home");
+        }else{
+            Session::flash("Product_insert_fail","Product Delete fail!");
+            Redirect::to("/admin/product/home");            
         }
     }
 

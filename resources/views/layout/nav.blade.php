@@ -16,16 +16,26 @@
                     <a class="nav-link english text-white" href="/admin">Admin Panel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link english text-white" href="#">Pricing</a>
+                    <a class="nav-link english text-white" href="/cart">
+                        Cart
+                        <span class="badge badge-danger badge-pill" style="position: relative; top:-10px; left:-5px" id="cart-count">0</span>
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle english text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
+                        @if(\App\Classes\Auth::check())
+                            {{\App\Classes\Session::get("user_name")}}
+                        @else
+                            Member
+                        @endif
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                        @if(\App\Classes\Auth::check())
+                            <a class="dropdown-item" href="/user/logout">Logout</a>
+                        @else
+                            <a class="dropdown-item" href="/user/login">Login</a>
+                            <a class="dropdown-item" href="/user/register">register</a>
+                        @endif
                     </div>
                 </li>
             </ul>

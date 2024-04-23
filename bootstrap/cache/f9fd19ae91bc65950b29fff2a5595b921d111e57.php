@@ -1,4 +1,4 @@
-<?php $__env->startSection("title","Product Create Page"); ?>
+<?php $__env->startSection("Title","Product Create Page"); ?>
 <?php $__env->startSection("content"); ?>
 <div class="container my-5">
     <div class="row">

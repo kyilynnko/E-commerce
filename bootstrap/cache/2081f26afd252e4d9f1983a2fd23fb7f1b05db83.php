@@ -16,6 +16,7 @@
     <script src="<?php echo URL_ROOT."assets/js/tether.min.js" ?>"></script>
     <script src="<?php echo URL_ROOT."assets/js/jquery.js" ?>"></script>
     <script src="<?php echo URL_ROOT."assets/js/bootstrap.min.js" ?>"></script>
+    <script src="<?php echo URL_ROOT."assets/js/custom.js" ?>"></script>
 
     <!-- script can do when write .js after -->
     <?php echo $__env->yieldContent('script'); ?>
