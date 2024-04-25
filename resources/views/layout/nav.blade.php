@@ -22,9 +22,11 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
+                    
                     <a class="nav-link dropdown-toggle english text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
                         @if(\App\Classes\Auth::check())
-                            {{\App\Classes\Session::get("user_name")}}
+                            {{\App\Classes\Session::get("user_id")}}
                         @else
                             Member
                         @endif

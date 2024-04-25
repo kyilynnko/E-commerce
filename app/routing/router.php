@@ -8,6 +8,9 @@ $router->map("POST","/cart","App\Controllers\IndexController@cart","Cart Route")
 $router->map("GET","/cart","App\Controllers\IndexController@showCart","Show Cart Route");
 $router->map("POST","/payout","App\Controllers\IndexController@payout","Payout Route");
 $router->map("GET","/product/[i:id]/detail","App\Controllers\IndexController@productDetail","Product Detail Route");
+$router->map("POST","/payment/stripe","App\Controllers\PaymentController@stripePayment","Stripe Payment Route");
+$router->map("GET","/getItems","App\Controllers\IndexController@getItemsFromSession","Get Item Route");
+
 
 
 require_once "admin_route.php";

@@ -17,10 +17,41 @@
                 </tr>
             </thead>
             <tbody id="tablebody">
-              
+                
             </tbody>
+            <?php if(\App\Classes\Auth::check()): ?>
+             <tr>
+                <td colspan='7' style='text-align:right' id="checkOutBtn">
+                    <button class = "btn btn-primary btn-sm" onclick='payOut()'>Check Out</button>
+                </td>
+            </tr>
+            <tr style="visibility: visible; " id="stripeTr">
+                <td colspan="7" class="text-right">
+                    <form action="/payment/stripe" method="post" style="display: none;" id="stripeForm" >
+                            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+                                data-key="pk_test_51P9LezB4Yx9DKWeBuzk9ifN2g5wPHz3MhVvWPqEXIlpd4jsNGrMzy4kkbOceeJSnp6s7s4i3PJbwh25o9CPYJDfI00eeDm40te"
+                                data-name="Ginger Shop"
+                                data-description="Not like other, We double gin"
+                                data-image=""
+                                data-amount="5000"
+                                data-locale="auto">
+                            </script>
+                            <?php if(\App\Classes\Auth::check()): ?>
+                                <input type="hidden" name="email" value="<?php echo e(\App\Classes\Auth::user()->email); ?>">
+                            <?php endif; ?>
+                    </form>
+                </td>
+            </tr>
+            <?php else: ?>
+                <tr>
+                    <td colspan='7' style='text-align:right'>
+                        <a class = "btn btn-primary btn-sm" href="/user/login">Login</a>
+                    </td>
+                </tr>
+            <?php endif; ?>
         </table>
     <!-- Table End -->
+    <a href="/getItems">Show Item</a>
 </div>
 <?php $__env->stopSection(); ?>
 
@@ -100,8 +131,7 @@
                     <i class="fa fa-minus" style="cursor:pointer" onclick= "deduceProductQty(${result.id})"></i>
                     <i class="fa fa-trash" style="cursor:pointer" onclick= "deleteProduct(${result.id})"></i>
                 </td>
-                <td>${(result.qty * result.price).toFixed(2)}</td>
-            
+                <td>${(result.qty * result.price).toFixed(2)}</td>                   
             `;
             str += "</tr>";
         });
@@ -110,11 +140,7 @@
                 <td colspan='6' style='text-align:right'>Grand Total</td>
                 <td>${total.toFixed(2)}</td>
             </tr>
-            <tr>
-                <td colspan='7' style='text-align:right'>
-                    <a class = "btn btn-primary btn-sm" href="/user/login">Check Out</a>
-                </td>
-            </tr>
+           
         `;
         $('#tablebody').html(str);
 
@@ -130,9 +156,13 @@
                 "token": $("#token").val()
             },
             success: function (results) {
-                clearCart();
-                showCartItem();
-                showProducts([]);
+                console.log(results);
+                $('#checkOutBtn').css("display","none");
+                $('#stripeTr').css("visibility","hidden");
+                $('#stripeForm').css("display","block");
+                // clearCart();
+                // showCartItem();
+                // showProducts([]);
             },
             error: function (sespone) {
                 console.log(sespone.responseText);
@@ -140,6 +170,9 @@
         })
     }
 
+    
+
+    
 
     loadProduct();
 </script>

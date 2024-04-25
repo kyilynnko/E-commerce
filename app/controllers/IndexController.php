@@ -52,7 +52,12 @@ class IndexController extends BaseController
             echo "Token Mis Match Error!";
             exit;
         }
-        
+    }
+
+    public function getItemsFromSession()
+    {
+        $items = Session::get("cart-items");
+        beautify($items);   
     }
 
     public function saveOrder($orders)

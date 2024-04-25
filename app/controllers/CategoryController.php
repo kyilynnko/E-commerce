@@ -9,6 +9,7 @@ use App\Classes\UpdateFile;
 use App\Classes\ValidateRequest;
 use App\Models\SubCategory;
 use App\Models\Category;
+use Symfony\Component\Translation\Dumper\DumperInterface;
 
 class CategoryController extends BaseController
 {

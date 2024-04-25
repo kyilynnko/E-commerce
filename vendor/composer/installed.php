@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => '4.4.2024.x-dev',
-        'version' => '4.4.2024.9999999-dev',
-        'reference' => '60a63c0e4ea0a4f437e62a964efdd1adf4be82df',
+        'pretty_version' => '23.4.2024.x-dev',
+        'version' => '23.4.2024.9999999-dev',
+        'reference' => '968b1fb8ce7d6925cbac9ede738c1d619d170910',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => '4.4.2024.x-dev',
-            'version' => '4.4.2024.9999999-dev',
-            'reference' => '60a63c0e4ea0a4f437e62a964efdd1adf4be82df',
+            'pretty_version' => '23.4.2024.x-dev',
+            'version' => '23.4.2024.9999999-dev',
+            'reference' => '968b1fb8ce7d6925cbac9ede738c1d619d170910',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -53,7 +53,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../filp/whoops',
             'aliases' => array(),
-            'dev_requirement' => false,
+            'dev_requirement' => true,
         ),
         'graham-campbell/result-type' => array(
             'pretty_version' => 'v1.1.2',
@@ -202,6 +202,15 @@
             'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/simple-cache',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'stripe/stripe-php' => array(
+            'pretty_version' => 'v14.3.0',
+            'version' => '14.3.0.0',
+            'reference' => '4825e7f03f9f83e091928c8f08f96bc87fdd2c7d',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stripe/stripe-php',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

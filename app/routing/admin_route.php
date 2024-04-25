@@ -14,4 +14,5 @@ $router->map("POST","/admin/product/create","App\Controllers\ProductController@s
 $router->map("GET","/admin/product/[i:id]/edit","App\Controllers\ProductController@edit","Product Edit");
 $router->map("POST","/admin/product/[i:id]/edit","App\Controllers\ProductController@update","Product Update");
 $router->map("GET","/admin/product/[i:id]/delete","App\Controllers\ProductController@delete","Product Delete");
+
 ?>

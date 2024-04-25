@@ -26,10 +26,16 @@ class Session
 
     public static function get($key)
     {
+        // if(self::has($key)){
+        //     return $_SESSION[$key];
+        // }else{
+        //     return null;
+        // }
+
         if(self::has($key)){
-            return $_SESSION[$key];
-        }else{
             return null;
+        }else{
+            return $_SESSION[$key];
         }
     }
 
