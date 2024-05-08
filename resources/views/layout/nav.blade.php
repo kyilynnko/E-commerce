@@ -26,7 +26,7 @@
                     <a class="nav-link dropdown-toggle english text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                         @if(\App\Classes\Auth::check())
-                            {{\App\Classes\Session::get("user_id")}}
+                            {{\App\Classes\Auth::user()->name}}
                         @else
                             Member
                         @endif

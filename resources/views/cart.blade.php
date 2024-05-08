@@ -27,8 +27,11 @@
                     <button class = "btn btn-primary btn-sm" onclick='payOut()'>Check Out</button>
                 </td>
             </tr>
-            <tr style="visibility: visible; " id="stripeTr">
-                <td colspan="7" class="text-right">
+            <tr style="display:none;" id="stripeTr">
+                <td colspan="6" class="text-right">
+                    <span id="paypal-button"></span>
+                </td>
+                <td class="text-right">
                     <form action="/payment/stripe" method="post" style="display: none;" id="stripeForm" >
                             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
                                 data-key="pk_test_51P9LezB4Yx9DKWeBuzk9ifN2g5wPHz3MhVvWPqEXIlpd4jsNGrMzy4kkbOceeJSnp6s7s4i3PJbwh25o9CPYJDfI00eeDm40te"
@@ -53,11 +56,47 @@
             @endif
         </table>
     <!-- Table End -->
-    <a href="/getItems">Show Item</a>
 </div>
 @endsection
 
 @section('script')
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+    paypal.Button.render({
+        env: 'sandbox',
+        client: {
+            sandbox: 'AaD8GGs2f_sqOHJZMjR00QW3Xi76BpquBWzw8z3Lqzx6aIn11XhYit_N-wbHv-z3ccWZ02C66X9GPIa-',
+            production: 'demo_production_client_id'
+        },
+        locale: 'en_US',
+        style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill'
+        },
+        payment: function(data, actions) {
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: '10.0',
+                        currency: 'USD'
+                    }
+                }]
+            });
+        },
+        onAuthorize: function(data, actions) {
+            return actions.payment.execute().then(function() {
+                window.alert('Thank you for your purchase!');
+                window.location.href = "http://shop.bm/payment/stripe";
+                // window.location.href = "http://shop.bm/paypal/success/" +
+                //     data.paymentID + "/" + data.payerID + "/" + data.paymentToken;
+            });
+        }
+    },'#paypal-button');
+</script>
+
 <script>
     function loadProduct(){
         $.ajax({
@@ -160,7 +199,7 @@
             success: function (results) {
                 console.log(results);
                 $('#checkOutBtn').css("display","none");
-                $('#stripeTr').css("visibility","hidden");
+                $('#stripeTr').css("display","revert-layer");
                 $('#stripeForm').css("display","block");
                 // clearCart();
                 // showCartItem();
@@ -171,10 +210,6 @@
             }
         })
     }
-
-    
-
-    
 
     loadProduct();
 </script>

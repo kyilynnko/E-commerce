@@ -24,7 +24,26 @@ class PaymentController
             "currency" => 'usd'
         ]);
 
-        beautify($charge);
+        $status = $charge->status;
+        $index = new IndexController();
+        $con = $index->saveItemsToDatabase($status,json_encode($charge));
+        if ($con){
+            view("payment_success");
+        }else{
+            view("cart");
+        }
+    }
+
+    // public function paypalSuccess($paymentID,$payerID,$paymentToken)
+    // {
+    //     echo "Payment Id is " . $paymentID . "<br>";
+    //     echo "Payer Id is " . $payerID . "<br>";
+    //     echo "Payment Token is " . $paymentToken . "<br>";
+    // }
+
+    public function paypalSuccess()
+    {
+        view("payment_success");
     }
 }
 ?>

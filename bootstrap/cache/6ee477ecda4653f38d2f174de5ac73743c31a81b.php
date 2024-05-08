@@ -26,7 +26,7 @@
                     <a class="nav-link dropdown-toggle english text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                         <?php if(\App\Classes\Auth::check()): ?>
-                            <?php echo e(\App\Classes\Session::get("user_id")); ?>
+                            <?php echo e(\App\Classes\Auth::user()->name); ?>
 
                         <?php else: ?>
                             Member

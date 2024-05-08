@@ -19,14 +19,15 @@ function addToCart(num){
     var ary = JSON.parse(localStorage.getItem("items"));
     if (ary == null){
         var itemAry = [num];
-        localStorage.setItem("items",JSON.stringify(itemAry));
+        localStorage.setItem("items", JSON.stringify(itemAry));
     }else{
-    $con = ary.indexOf(num);
+        $con = ary.indexOf(num);
     if($con == -1){
         ary.push(num);
-    localStorage.setItem("items", JSON.stringify(ary));
-            }
+        localStorage.setItem("items", JSON.stringify(ary));
         }
+
+    }
     alert("Item already Added to Cart!");
     showCartItem();
 }

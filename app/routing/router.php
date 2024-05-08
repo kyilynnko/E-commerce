@@ -9,7 +9,10 @@ $router->map("GET","/cart","App\Controllers\IndexController@showCart","Show Cart
 $router->map("POST","/payout","App\Controllers\IndexController@payout","Payout Route");
 $router->map("GET","/product/[i:id]/detail","App\Controllers\IndexController@productDetail","Product Detail Route");
 $router->map("POST","/payment/stripe","App\Controllers\PaymentController@stripePayment","Stripe Payment Route");
-$router->map("GET","/getItems","App\Controllers\IndexController@getItemsFromSession","Get Item Route");
+$router->map("GET","/payment/stripe","App\Controllers\PaymentController@paypalsuccess","Paypal Success Route");
+
+// $router->map("GET","/paypal/success/[*:paymentID]/[*:payerID]/[*:paymentToken]","App\Controllers\PaymentController@paypalSuccess","Paypal Successs Route");
+
 
 
 
