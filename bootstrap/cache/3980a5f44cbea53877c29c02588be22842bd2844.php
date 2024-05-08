@@ -15,7 +15,7 @@
                 <h3><?php echo e($product->name); ?></h3>
                 <p><?php echo e($product->description); ?></p>
                 <button class="btn btn-warning rounded-0 text-white">$ <?php echo e($product->price); ?></button>
-                <button class="btn btn-success rounded-0">Add  to Cart</button>
+                <button class="btn btn-success rounded-0" onclick="addToCart('<?php echo e($product->id); ?>')">Add  to Cart</button>
                 <p class="mt-3">
                     <span>
                         Rate :
@@ -33,6 +33,8 @@
                     </div>
                 </div>
             </div>
+            <button class="btn btn-dark rounded-0 english  mt-5 mx-auto"><a href="/" class="text-white" style="text-decoration: none !important;"><-- Back</a></button>
+
         </div>
     </div>
 </div>
